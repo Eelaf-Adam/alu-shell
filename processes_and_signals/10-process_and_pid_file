@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Task 9
+PID_FILE="/var/run/myscript.pid"
+echo $$ > "$PID_FILE"
+cleanup() {
+    rm -f "$PID_FILE"
+    exit
+}
+term_handler() {
+    echo "I hate the kill command"
+    cleanup
+}
+int_handler() {
+    echo "Y U no love me?!"
+}
+quit_handler() {
+    cleanup
+}
+trap 'term_handler' SIGTERM
+trap 'int_handler' SIGINT
+trap 'quit_handler' SIGQUIT
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
+
+
+
+
+
+
+
+
