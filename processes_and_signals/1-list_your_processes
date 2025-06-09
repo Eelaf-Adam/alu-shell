@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Task 1
+echo "Displaying all running processes in a hierarchical, user-oriented format:"
+echo
+ps -eo user,pid,ppid,tty,stat,start,time,cmd --forest
