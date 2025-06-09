@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# A loop that prints Best School 10 times
-for i in {1..10}
+# A loop that prints Best School 10 timeis
+for _  in {1..10}
 do 
     echo "Best School"
 done
