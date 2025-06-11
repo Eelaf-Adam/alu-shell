@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# Task 8
-pids=$(pgrep -f "./7-highlander")
+# Bash script that kills the process 7-highlander file
 
-if [ -n "$pids" ]; then
-  kill $pids
-fi
+pkill -f -SIGKILL 7-highlander
