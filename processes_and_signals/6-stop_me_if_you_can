@@ -1,15 +1,4 @@
 #!/usr/bin/env bash
-# Task 6
-for pid in /proc/[0-9]*; do
-    cmdline_file="$pid/cmdline"
-    if [ -r "$cmdline_file" ]; then
-        cmdline=$(tr '\0' ' ' < "$cmdline_file")
-        if [[ "$cmdline" == *"./4-to_infinity_and_beyond"* ]]; then
-		 exec {fd}<>"/proc/${pid}/fd/0" 2>/dev/null
-            if exec {fd}<>"/proc/${pid}/fd/0" 2>/dev/null; then
-                echo "exit" >&$fd
-                exec {fd}>&-
-            fi
-        fi
-    fi
-done
+# Bash script that stops 4-to_infinity_and_beyond process changing the script from kill to pkill
+
+pkill -f 4-to_infinity_and_beyond
